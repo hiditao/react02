@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 普通函数
+        function fn() {
+            console.log(this); //window
+        }
+        fn();
+        
+        // es5 构造函数
+        function People(name) {
+            this.name = name;
+            console.log(this); //new出来的对象
+        }
+        new People("小明");
+        new People("小华");
+
+        // es6中class内部使用constructor来描述构造函数
+        // 构造函数在new的时候执行,内部的this表示new出来的对象
+        class Dog {
+            constructor(type) {
+                this.type = type;
+                console.log(this);
+            }
+        }
+        new Dog("哈士奇");
+        new Dog("金毛");
+        
+
+    </script>
+</body>
+</html>
